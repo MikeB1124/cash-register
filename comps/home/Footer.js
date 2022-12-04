@@ -13,15 +13,15 @@ function Footer(){
             <Stack style={{display:"flex", justifyContent:"center", gap:"60px"}} spacing={2} direction="row">
                 <div style={menuItem}>
                     <Button><HomeIcon style={iconStyle}/></Button>
-                    <Typography style={menuLabel} variant="h6">Home</Typography>
+                    <Typography style={menuLabel} variant="h7">Home</Typography>
                 </div>
                 <div style={menuItem}>
                     <Button><PaidIcon style={iconStyle}/></Button>
-                    <Typography style={menuLabel} variant="h6">Transactions</Typography>
+                    <Typography style={menuLabel} variant="h7">Transactions</Typography>
                 </div>
                 <div style={menuItem}>
                     <Button><AssessmentIcon style={iconStyle}/></Button>
-                    <Typography style={menuLabel} variant="h6">Reports</Typography>
+                    <Typography style={menuLabel} variant="h7">Reports</Typography>
                 </div>
             </Stack>
         </div>
@@ -31,7 +31,7 @@ function Footer(){
 export default Footer
 
 const footerContainer = {
-    height:"8vh",
+    height:"7vh",
     width:"100vw",
     backgroundColor:"white"
 }

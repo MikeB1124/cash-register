@@ -9,14 +9,14 @@ import Stack from '@mui/material/Stack';
 
 export default function Home() {
   return (
-    <div>
+    <div style={{width:"100vw", height:"100vh"}}>
       <div style={homeContainerStyle}>
         <Stack spacing={2} direction="row">
           <Stack spacing={2} direction="column">
-            <Calculator style={{width:"50vw"}}/>
+            <Calculator/>
           </Stack>
           <Stack spacing={2} direction="column">
-            <ShoppingCart style={{width:"50vw"}}/>
+            <ShoppingCart/>
           </Stack>
         </Stack>
       </div>
@@ -30,13 +30,13 @@ export default function Home() {
 
 
 const homeContainerStyle = {
-  height:"92vh",
-  width:"100vw", 
-  display:"flex", 
-  alignItems:"flex-end"
+  // height:"92vh",
+  // width:"100vw", 
+  // display:"flex", 
+  // alignItems:"flex-end"
 }
 
 const footerStyle = {
-  height:"8vh", 
+  // height:"8vh", 
   width:"100vw"
 }

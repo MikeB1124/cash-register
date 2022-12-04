@@ -10,7 +10,7 @@ function Calculator(){
 
                 <Stack spacing={2} direction="column" style={calculatorContainer}>
                     <Stack spacing={2} direction="row" style={{display:"flex", justifyContent:"right"}}>
-                        <Typography variant="h1">$12.50</Typography>
+                        <Typography variant="h2">$12.50</Typography>
                     </Stack>
 
                     <Stack spacing={2} direction="row">
@@ -62,7 +62,8 @@ function Calculator(){
 export default Calculator
 
 const container = {
-    padding:"16px"
+    padding:"16px",
+    width:"50vw"
 }
 
 const calculatorContainer = {
@@ -72,8 +73,8 @@ const calculatorContainer = {
 }
 
 const calculatorButtons = {
-    height:"135px",
-    width:"135px",
+    height:"100px",
+    width:"100px",
     backgroundColor:"#505050",
     borderRadius:"12px",
     fontWeight:"bold",
@@ -82,33 +83,33 @@ const calculatorButtons = {
 }
 
 const categoryButtons = {
-    height:"135px",
-    width:"135px",
+    height:"100px",
+    width:"100px",
     backgroundColor:"#FF9500",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"20px",
+    fontSize:"15px",
     letterSpacing:"1px",
     color:"white"
 }
 
 const transactionButtons = {
-    height:"135px",
-    width:"135px",
+    height:"100px",
+    width:"100px",
     backgroundColor:"grey",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"20px",
+    fontSize:"15px",
     letterSpacing:"1px",
     color:"white"
 }
 
 const taxButtons = {
-    height:"135px",
-    width:"135px",
+    height:"100px",
+    width:"100px",
     backgroundColor:"#505050",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"30px",
+    fontSize:"25px",
     color:"white"
 }

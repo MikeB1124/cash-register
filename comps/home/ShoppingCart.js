@@ -14,5 +14,6 @@ function ShoppingCart(){
 export default ShoppingCart
 
 const container = {
-    width:"50vw"
+    width:"50vw",
+    // padding:"16px"
 }
