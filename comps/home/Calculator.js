@@ -2,59 +2,130 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import PercentIcon from '@mui/icons-material/Percent';
+import Alert from '@mui/material/Alert';
+import {useEffect, useState} from 'react'
 
-function Calculator(){
+function Calculator({itemAddedToCart}){
+    const [calculatorTotal, setCalculatorTotal] = useState("0")
+    const [category, setCategory] = useState(null)
+    const [itemList, setItemList] = useState([])
+
+    const [error, setError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
+
+    function numberPress(number){
+        if(calculatorTotal == "0"){
+            setCalculatorTotal(number)
+        }else{
+            setCalculatorTotal(calculatorTotal + number)
+        }
+    }
+
+    function clearCalculator(){
+        setCalculatorTotal("0")
+        setCategory(null)
+    }
+
+    function handleCategory(itemCategory){
+        setCategory(itemCategory)
+    }
+
+    function taxable(){
+        if(category){
+            let tax = (parseFloat(calculatorTotal) * 0.095).toFixed(2)
+            let item = {
+                "category": category,
+                "price": calculatorTotal,
+                "taxTotal": tax,
+                "total": (parseFloat(calculatorTotal) + parseFloat(tax)).toFixed(2).toString(),
+                "taxable": true
+            }
+            setItemList([...itemList, item])
+            itemAddedToCart(item)
+            setCalculatorTotal("0")
+            setCategory(null)
+        }else{
+            setErrorMessage("Must choose a category first")
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 2000)
+        }
+    }
+
+    function nonTaxable(){
+        if(category){
+            let item = {
+                "category": category,
+                "price": calculatorTotal,
+                "taxTotal": "0.0",
+                "total": calculatorTotal,
+                "taxable": false
+            }
+            setItemList([...itemList, item])
+            itemAddedToCart(item)
+            setCalculatorTotal("0")
+            setCategory(null)
+        }else{
+            setErrorMessage("Must choose a category first")
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 2000)
+        }
+    }
+
     return(
         <div style={container}>
-            <Stack spacing={2} direction="row">
+            <div style={{display:"flex"}}>
+                <div style={calculatorContainer}>
+                    <div style={{display:"flex", justifyContent:"right"}}>
+                        <Typography variant="h2" style={{color:"white", fontWeight:"bold", textAlign:"right"}}>${calculatorTotal}</Typography>
+                    </div>
 
-                <Stack spacing={2} direction="column" style={calculatorContainer}>
-                    <Stack spacing={2} direction="row" style={{display:"flex", justifyContent:"right"}}>
-                        <Typography variant="h2">$12.50</Typography>
-                    </Stack>
+                    <div style={{display:"flex"}}>
+                        <Button style={taxButtons} value="tax" onClick={taxable}>Tax</Button>
+                        <Button style={taxButtons} value="no-tax" onClick={nonTaxable}>No Tax</Button>
+                        <Button style={calculatorButtons} value="clear" onClick={clearCalculator}>C</Button>
+                    </div>
 
-                    <Stack spacing={2} direction="row">
-                        <Button disabled style={taxButtons}>Tax</Button>
-                        <Button style={taxButtons}>No Tax</Button>
-                        <Button style={calculatorButtons}>C</Button>
-                    </Stack>
+                    <div style={{display:"flex"}}>
+                        <Button style={calculatorButtons} value="7" onClick={(event) => numberPress(event.target.value)}>7</Button>
+                        <Button style={calculatorButtons} value="8" onClick={(event) => numberPress(event.target.value)}>8</Button>
+                        <Button style={calculatorButtons} value="9" onClick={(event) => numberPress(event.target.value)}>9</Button>
+                    </div>
 
-                    <Stack spacing={2} direction="row">
-                        <Button style={calculatorButtons}>7</Button>
-                        <Button style={calculatorButtons}>8</Button>
-                        <Button style={calculatorButtons}>9</Button>
-                    </Stack>
+                    <div style={{display:"flex"}}>
+                        <Button style={calculatorButtons} value="4" onClick={(event) => numberPress(event.target.value)}>4</Button>
+                        <Button style={calculatorButtons} value="5" onClick={(event) => numberPress(event.target.value)}>5</Button>
+                        <Button style={calculatorButtons} value="6" onClick={(event) => numberPress(event.target.value)}>6</Button>
+                    </div>
 
-                    <Stack spacing={2} direction="row">
-                        <Button style={calculatorButtons}>4</Button>
-                        <Button style={calculatorButtons}>5</Button>
-                        <Button style={calculatorButtons}>6</Button>
-                    </Stack>
+                    <div style={{display:"flex"}}>
+                        <Button style={calculatorButtons} value="1" onClick={(event) => numberPress(event.target.value)}>1</Button>
+                        <Button style={calculatorButtons} value="2" onClick={(event) => numberPress(event.target.value)}>2</Button>
+                        <Button style={calculatorButtons} value="3" onClick={(event) => numberPress(event.target.value)}>3</Button>
+                    </div>
 
-                    <Stack spacing={2} direction="row">
-                        <Button style={calculatorButtons}>1</Button>
-                        <Button style={calculatorButtons}>2</Button>
-                        <Button style={calculatorButtons}>3</Button>
-                    </Stack>
+                    <div style={{display:"flex"}}>
+                        <Button style={calculatorButtons} value="0" onClick={(event) => numberPress(event.target.value)}>0</Button>
+                        <Button style={calculatorButtons} value="00" onClick={(event) => numberPress(event.target.value)}>00</Button>
+                        <Button style={calculatorButtons} value="." onClick={(event) => numberPress(event.target.value)}>.</Button>
+                    </div>
+                    {error ? <Alert variant="filled" severity="error">{errorMessage}</Alert> : <div></div>}
+                </div>
 
-                    <Stack spacing={2} direction="row">
-                        <Button style={calculatorButtons}>0</Button>
-                        <Button style={calculatorButtons}>00</Button>
-                        <Button style={calculatorButtons}>.</Button>
-                    </Stack>
-                </Stack>
+                <div>
+                    <Button style={categoryButtons} value="Breakfast" onClick={(event) => handleCategory(event.target.value)}>Breakfast</Button>
+                    <Button style={categoryButtons} value="Grill" onClick={(event) => handleCategory(event.target.value)}>Grill</Button>
+                    <Button style={categoryButtons} value="Deli" onClick={(event) => handleCategory(event.target.value)}>Deli</Button>
+                    <Button style={categoryButtons} value="Coffee" onClick={(event) => handleCategory(event.target.value)}>Coffee</Button>
+                    <Button style={categoryButtons} value="Snacks" onClick={(event) => handleCategory(event.target.value)}>Snacks</Button>
+                    <Button style={transactionButtons} value="Discount">Discount</Button>
+                </div>
+            </div>
 
-                <Stack spacing={2} direction="row" style={{display:"flex", alignSelf:"flex-end", marginBottom:"16px"}}>
-                    <Stack spacing={2} direction="column">
-                        <Button style={categoryButtons}>Breakfast</Button>
-                        <Button style={categoryButtons}>Grill</Button>
-                        <Button style={categoryButtons}>Deli</Button>
-                        <Button style={categoryButtons}>Coffee</Button>
-                        <Button style={categoryButtons}>Snacks</Button>
-                        <Button style={transactionButtons}>Discount</Button>
-                    </Stack>
-                </Stack>
-            </Stack>
+
         </div>
     )
 }
@@ -67,49 +138,54 @@ const container = {
 }
 
 const calculatorContainer = {
+    // display:"flex",
     backgroundColor:"#1C1C1C",
     borderRadius:"16px",
     padding:"18px"
 }
 
 const calculatorButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"#505050",
     borderRadius:"12px",
     fontWeight:"bold",
     fontSize:"50px",
-    color:"white"
+    color:"white",
+    margin:"8px"
 }
 
 const categoryButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"#FF9500",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"15px",
+    fontSize:"18px",
     letterSpacing:"1px",
-    color:"white"
+    color:"white",
+    margin:"8px"
 }
 
 const transactionButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"grey",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"15px",
+    fontSize:"18px",
     letterSpacing:"1px",
-    color:"white"
+    color:"white",
+    margin:"8px"
 }
 
 const taxButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"#505050",
     borderRadius:"12px",
     fontWeight:"bold",
     fontSize:"25px",
-    color:"white"
+    color:"white",
+    margin:"8px"
 }

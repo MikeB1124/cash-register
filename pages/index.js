@@ -1,37 +1,31 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import Calculator from '../comps/home/Calculator'
 import Footer from '../comps/home/Footer'
 import ShoppingCart from '../comps/home/ShoppingCart'
-import styles from '../styles/Home.module.css'
-import Stack from '@mui/material/Stack';
-
-
-import CalculatorTwo from '../comps/home/CalculatorTwo'
-import FooterTwo from '../comps/home/FooterTwo'
-import ShoppingCartTwo from '../comps/home/ShoppingCartTwo'
+import { useState } from 'react';
 
 export default function Home() {
+  const [itemList, setItemList] = useState([])
+
+  function itemAddedToCart(item){
+    setItemList([...itemList, item])
+  }
+
+  function deleteFromCart(index){
+    let filteredList = itemList.filter((item, i) => i != index)
+    setItemList(filteredList)
+  }
+
   return (
     <div style={{backgroundColor:"#505050"}}>
         <div style={{display:"flex", justifyContent:"space-around", padding:"8px"}}>
-          <CalculatorTwo/>
-          <ShoppingCartTwo/>
+          <Calculator itemAddedToCart={itemAddedToCart}/>
+          <ShoppingCart itemList={itemList} deleteFromCart={deleteFromCart}/>
         </div>
-        {/* <FooterTwo/> */}
+        {/* <Footer/> */}
     </div>
   )
 }
 
-
-const homeContainerStyle = {
-  // height:"92vh",
-  // width:"100vw", 
-  // display:"flex", 
-  // alignItems:"flex-end"
-}
-
-const footerStyle = {
-  // height:"8vh", 
-  // width:"100vw"
-}

@@ -9,35 +9,42 @@ import Typography from '@mui/material/Typography';
 
 function Footer(){
     return(
-        <div style={footerContainer}>
-            <Stack style={{display:"flex", justifyContent:"center", gap:"60px"}} spacing={2} direction="row">
-                <div style={menuItem}>
-                    <Button><HomeIcon style={iconStyle}/></Button>
-                    <Typography style={menuLabel} variant="h7">Home</Typography>
-                </div>
-                <div style={menuItem}>
-                    <Button><PaidIcon style={iconStyle}/></Button>
-                    <Typography style={menuLabel} variant="h7">Transactions</Typography>
-                </div>
-                <div style={menuItem}>
-                    <Button><AssessmentIcon style={iconStyle}/></Button>
-                    <Typography style={menuLabel} variant="h7">Reports</Typography>
-                </div>
-            </Stack>
+        <div style={container}>
+            <Button style={buttonStyle}>
+                <HomeIcon style={iconStyle}/>
+                <Typography style={menuLabel} variant="h7">Home</Typography>
+            </Button>
+
+            <Button>
+                <PaidIcon style={iconStyle}/>
+                <Typography style={menuLabel} variant="h7">Transactions</Typography>
+            </Button>  
+
+            <Button>
+                <AssessmentIcon style={iconStyle}/>
+                <Typography style={menuLabel} variant="h7">Reports</Typography>
+            </Button>
+
         </div>
     )
 }
 
 export default Footer
 
-const footerContainer = {
-    height:"7vh",
-    width:"100vw",
-    backgroundColor:"white"
+const container = {
+    display:"flex",
+    justifyContent:"center",
+    gap:"60px",
+    backgroundColor:"#D4D4D2",
+    padding:"8px"
+}
+
+const buttonStyle = {
+    textAlign:"center"
 }
 
 const menuItem = {
-    textAlign:"center"
+    // textAlign:"center"
 }
 
 const menuLabel = {
