@@ -18,7 +18,7 @@ export default function Home() {
           <CalculatorTwo/>
           <ShoppingCartTwo/>
         </div>
-        <FooterTwo/>
+        {/* <FooterTwo/> */}
     </div>
   )
 }
