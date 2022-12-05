@@ -18,11 +18,15 @@ export default function Home() {
     setItemList(filteredList)
   }
 
+  function orderComplete(){
+    setItemList([])
+  }
+
   return (
     <div style={{backgroundColor:"#505050"}}>
         <div style={{display:"flex", justifyContent:"space-around", padding:"8px"}}>
           <Calculator itemAddedToCart={itemAddedToCart}/>
-          <ShoppingCart itemList={itemList} deleteFromCart={deleteFromCart}/>
+          <ShoppingCart itemList={itemList} deleteFromCart={deleteFromCart} orderComplete={orderComplete}/>
         </div>
         {/* <Footer/> */}
     </div>

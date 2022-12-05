@@ -18,5 +18,6 @@ export default CartItem
 
 const textStyle = {
     fontWeight:"bold",
-    color:"white"
+    color:"white",
+    minWidth:"150px",
 }
