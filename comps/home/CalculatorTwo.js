@@ -9,7 +9,7 @@ function CalculatorTwo(){
             <div style={{display:"flex"}}>
                 <div style={calculatorContainer}>
                     <div style={{display:"flex", justifyContent:"right"}}>
-                        <Typography variant="h2">$12.50</Typography>
+                        <Typography variant="h2" style={{color:"white", fontWeight:"bold"}}>$12.50</Typography>
                     </div>
 
                     <div style={{display:"flex"}}>

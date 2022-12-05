@@ -34,7 +34,9 @@ export default FooterTwo
 const container = {
     display:"flex",
     justifyContent:"center",
-    gap:"60px"
+    gap:"60px",
+    backgroundColor:"#D4D4D2",
+    padding:"8px"
 }
 
 const buttonStyle = {

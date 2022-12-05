@@ -14,7 +14,7 @@ import ShoppingCartTwo from '../comps/home/ShoppingCartTwo'
 export default function Home() {
   return (
     <div style={{backgroundColor:"#505050"}}>
-        <div style={{display:"flex", justifyContent:"center"}}>
+        <div style={{display:"flex", justifyContent:"space-around", padding:"8px"}}>
           <CalculatorTwo/>
           <ShoppingCartTwo/>
         </div>
