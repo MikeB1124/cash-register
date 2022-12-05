@@ -73,8 +73,8 @@ const calculatorContainer = {
 }
 
 const calculatorButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"#505050",
     borderRadius:"12px",
     fontWeight:"bold",
@@ -84,32 +84,32 @@ const calculatorButtons = {
 }
 
 const categoryButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"#FF9500",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"15px",
+    fontSize:"18px",
     letterSpacing:"1px",
     color:"white",
     margin:"8px"
 }
 
 const transactionButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"grey",
     borderRadius:"12px",
     fontWeight:"bold",
-    fontSize:"15px",
+    fontSize:"18px",
     letterSpacing:"1px",
     color:"white",
     margin:"8px"
 }
 
 const taxButtons = {
-    height:"100px",
-    width:"100px",
+    height:"115px",
+    width:"115px",
     backgroundColor:"#505050",
     borderRadius:"12px",
     fontWeight:"bold",
