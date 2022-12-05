@@ -32,8 +32,11 @@ function CashTransModal({total, orderComplete}){
 
     function closeModal(){
         setOpen(false)
-        setShowChange(false)
-        orderComplete()
+        
+        if(customerChange != 0){
+            setShowChange(false)
+            orderComplete()
+        }
     }
 
     function handleBillClick(bill){
@@ -54,7 +57,7 @@ function CashTransModal({total, orderComplete}){
         <div>
             <div onClick={openModal} style={paymentButtonStyle}>
                 <PaymentsIcon fontSize='larger'/>
-                <Typography variant="h5" style={{fontWeight:"bold"}}>Cash</Typography>
+                <Typography variant="h4" style={{fontWeight:"bold"}}>Cash</Typography>
             </div>
             <Modal
                 open={open}

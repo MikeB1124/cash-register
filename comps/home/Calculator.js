@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import PercentIcon from '@mui/icons-material/Percent';
 import Alert from '@mui/material/Alert';
+import Chip from '@mui/material/Chip';
 import {useEffect, useState} from 'react'
 
 function Calculator({itemAddedToCart}){
@@ -79,6 +80,10 @@ function Calculator({itemAddedToCart}){
         <div style={container}>
             <div style={{display:"flex"}}>
                 <div style={calculatorContainer}>
+                    <div style={{display:"flex", justifyContent:"right"}}>
+                        {category ? <Chip label={category} style={{color:"white", backgroundColor:"orange", fontWeight:"bold", letterSpacing:"1px"}}/> : <div></div>}
+                    </div>
+
                     <div style={{display:"flex", justifyContent:"right"}}>
                         <Typography variant="h2" style={{color:"white", fontWeight:"bold", textAlign:"right"}}>${calculatorTotal}</Typography>
                     </div>

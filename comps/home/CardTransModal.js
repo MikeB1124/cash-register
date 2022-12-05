@@ -20,7 +20,7 @@ function CardTransModal({total}){
         <div>
             <div onClick={openModal} style={paymentButtonStyle}>
                 <CreditCardIcon fontSize='larger'/>
-                <Typography variant="h5" style={{fontWeight:"bold"}}>Card</Typography>
+                <Typography variant="h4" style={{fontWeight:"bold"}}>Card</Typography>
             </div>
             <Modal
                 open={open}

@@ -63,8 +63,8 @@ function ShoppingCart({itemList, deleteFromCart, orderComplete}){
                 </div>
 
                 <div>
-                    <Typography style={{color:"white", fontWeight:"bold"}} variant="h5">Tax: ${taxTotal}</Typography>
-                    <Typography style={{color:"white", fontWeight:"bold"}} variant="h5">Total: ${total}</Typography>
+                    <Typography style={{color:"white", fontWeight:"bold"}} variant="h4">Tax: ${taxTotal}</Typography>
+                    <Typography style={{color:"white", fontWeight:"bold"}} variant="h4">Total: ${total}</Typography>
                 </div>
             </div>
         </div>
