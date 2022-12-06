@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
-const URI = "mongodb+srv://Mike:cciQ6jfqxjt6Yo7C@cluster0.du0vf.mongodb.net/pos-systemDB?retryWrites=true&w=majority";
+const URI = "mongodb+srv://Mike:cciQ6jfqxjt6Yo7C@cluster0.du0vf.mongodb.net/trimanaDB?retryWrites=true&w=majority";
 
-async function main(){
+async function connectMongo(){
     await mongoose.connect(URI)
-    console.log("databse connect")
+    console.log("Connected to trimanaDB")
 }
 
-export default main
+export default connectMongo

@@ -36,9 +36,9 @@ function Calculator({itemAddedToCart}){
             let tax = (parseFloat(calculatorTotal) * 0.095).toFixed(2)
             let item = {
                 "category": category,
-                "price": calculatorTotal,
-                "taxTotal": tax,
-                "total": (parseFloat(calculatorTotal) + parseFloat(tax)).toFixed(2).toString(),
+                "price": parseFloat(calculatorTotal),
+                "tax": parseFloat(tax),
+                "total": parseFloat((parseFloat(calculatorTotal) + parseFloat(tax)).toFixed(2)),
                 "taxable": true
             }
             setItemList([...itemList, item])
@@ -58,9 +58,9 @@ function Calculator({itemAddedToCart}){
         if(category){
             let item = {
                 "category": category,
-                "price": calculatorTotal,
-                "taxTotal": "0.0",
-                "total": calculatorTotal,
+                "price": parseFloat(calculatorTotal),
+                "tax": 0.0,
+                "total": parseFloat(calculatorTotal),
                 "taxable": false
             }
             setItemList([...itemList, item])

@@ -39,7 +39,7 @@ function ShoppingCart({itemList, deleteFromCart, orderComplete}){
         let grandTotal = 0.0
     
         list.map((item) => {
-            grandTotalTax += parseFloat(item.taxTotal)
+            grandTotalTax += parseFloat(item.tax)
             grandTotal += parseFloat(item.price)
         })
         setTotal((grandTotal + grandTotalTax).toFixed(2))

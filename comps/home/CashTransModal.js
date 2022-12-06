@@ -32,10 +32,9 @@ function CashTransModal({total, orderComplete}){
 
     function closeModal(){
         setOpen(false)
-        
-        if(customerChange != 0){
+        if(customerChange > 0.0){ 
             setShowChange(false)
-            orderComplete()
+            orderComplete("Paid")
         }
     }
 
