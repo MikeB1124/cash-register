@@ -19,8 +19,12 @@ export default function Home() {
   }
 
   function orderComplete(){
+    
+
     setItemList([])
   }
+
+
 
   return (
     <div style={{backgroundColor:"#505050"}}>
